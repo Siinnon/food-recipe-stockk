@@ -172,6 +172,9 @@ const RecipeListContainer = styled.div`
   font-family: 'Dosis', sans-serif;
 font-family: 'Xanh Mono', monospace;
 `;
+
+
+// to run app 
 const AppComponent = () => {
   const [searchQuery, updateSearchQuery] = useState("");
   const [recipeList, updateRecipeList] = useState([]);
