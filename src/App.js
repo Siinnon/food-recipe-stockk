@@ -5,19 +5,90 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogActions from "@material-ui/core/DialogActions";
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router';
+import store from './store';
+import axios from 'axios';
+// import Navbar from "./components/Navbar";
+
+// import Navbar from '@ovie/react-navbar'
+
+
+
+// const navBrand = <a href={ROUTES.HOME}>Base Corp.</a>
+
+// const leftLinks = (
+//   <>
+//     <a href={ROUTES.PLANS}>Our Plans</a>
+//     <a href={ROUTES.FAQ}>How It Works</a>
+//     <a href={ROUTES.MENU}>Our Menus</a>
+//   </>
+// )
+
+// const rightLinks = (
+//   <>
+//     <a href={ROUTES.SIGNUP}>Get Started</a>
+//     <a href={ROUTES.SIGNIN}>Sign In</a>
+//   </>
+// )
+
+// const Example = () => {
+//   r
+//     <div className="app">
+//       <Navbar
+//         className="navbar" // style .navbar in your css
+//         menuClassName="navbar--menu" // style .navbar--menu in your css
+//         brand={navBrand}
+//         theme={navTheme}
+//         leftLinks={leftLinks}
+//         rightLinks={rightLinks}
+//       />
+//     </div>
+//   )
+// }
+
+
+
+
+
 // api from youtube guy
 // const APP_ID = "a52b4d43";
 // const APP_KEY = "e0e5c667605f5e91d8275c973531b80a";
 
+
+axios.defaults.withCredentials = true
+axios.defaults.baseURL = 'https://gabbyblog.herokuapp.com/';
+
+Vue.config.productionTip = false
+new Vue({
+  store,
+  router,
+  render: h => h(App)
+}).$mount('#app')
+
+
+
+// const state = {
+//   user: null,
+//   posts: null,
+// };
+
+
+
 // my own api
 const APP_ID= "98ae43c9";
 const APP_KEY= "5dadbe216d63560310fe00f37bd98dec"
+
+
+
 
 const RecipeComponent = (props) => {
   const [show, setShow] = useState("");
 
   const { label, image, ingredients, url } = props.recipe;
   return (
+    
     <RecipeContainer>
       <Dialog
         onClose={() => console.log("hi")}
@@ -58,6 +129,7 @@ const RecipeComponent = (props) => {
     </RecipeContainer>
   );
 };
+
 
 // CSS for App.js in same file
 const RecipeContainer = styled.div`
@@ -218,8 +290,10 @@ const AppComponent = () => {
           <Placeholder src="/react-recipe-finder/rice.svg" />
         )}
       </RecipeListContainer>
+      
     </Container>
   );
+  
 };
 
 export default AppComponent;
